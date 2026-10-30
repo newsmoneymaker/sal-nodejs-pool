@@ -1,0 +1,17 @@
+[Unit]
+Description=Salvium pool: charts data collector (hash rate, difficulty, miners, workers on the home page)
+After=sal-pool-redis.service sal-pool-api.service
+Requires=sal-pool-redis.service
+[Service]
+Type=simple
+User=salpool
+WorkingDirectory=/opt/sal-nodejs-pool
+ExecStart=/usr/bin/node /opt/sal-nodejs-pool/init.js -module=chartsDataCollector
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

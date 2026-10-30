@@ -1,0 +1,24 @@
+{
+  "name": "sal-nodejs-pool",
+  "version": "1.0.0",
+  "license": "GPL-2.0",
+  "author": "Daniel Vandal (cryptonote-nodejs-pool), Salvium adaptation by the sal-nodejs-pool contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newsmoneymaker/sal-nodejs-pool.git"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "cli-color": "^2.0.4",
+    "dateformat": "^4.5.1",
+    "redis": "3.1.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "description": "Salvium (SAL) mining pool: RandomX stratum (rx/0), Carrot address support, share checking, batch payouts (fork of cryptonote-nodejs-pool)",
+  "homepage": "https://github.com/newsmoneymaker/sal-nodejs-pool",
+  "bugs": {
+    "url": "https://github.com/newsmoneymaker/sal-nodejs-pool/issues"
+  }
+}

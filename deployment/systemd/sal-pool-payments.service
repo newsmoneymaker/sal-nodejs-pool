@@ -1,0 +1,17 @@
+[Unit]
+Description=Salvium pool: payment processor (sendmany from the pool wallet; emergency brake: deployment/pause-payments.sh)
+After=sal-pool-redis.service sal-node.service sal-wallet-rpc.service
+Requires=sal-pool-redis.service
+[Service]
+Type=simple
+User=salpool
+WorkingDirectory=/opt/sal-nodejs-pool
+ExecStart=/usr/bin/node /opt/sal-nodejs-pool/init.js -module=payments
+Restart=always
+RestartSec=15
+TimeoutStopSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

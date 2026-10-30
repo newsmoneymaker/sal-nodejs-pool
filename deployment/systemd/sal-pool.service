@@ -1,0 +1,19 @@
+[Unit]
+Description=Salvium pool: stratum server (miners, share checking with the rxhash helper, block submission)
+After=sal-pool-redis.service sal-node.service sal-wallet-rpc.service
+Requires=sal-pool-redis.service
+[Service]
+Type=simple
+User=salpool
+WorkingDirectory=/opt/sal-nodejs-pool
+ExecStart=/usr/bin/node /opt/sal-nodejs-pool/init.js -module=pool
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+# ports below 1024 need this:
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target

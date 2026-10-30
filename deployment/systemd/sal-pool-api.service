@@ -1,0 +1,17 @@
+[Unit]
+Description=Salvium pool: public API (127.0.0.1:8134)
+After=sal-pool-redis.service sal-node.service sal-wallet-rpc.service
+Requires=sal-pool-redis.service
+[Service]
+Type=simple
+User=salpool
+WorkingDirectory=/opt/sal-nodejs-pool
+ExecStart=/usr/bin/node /opt/sal-nodejs-pool/init.js -module=api
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

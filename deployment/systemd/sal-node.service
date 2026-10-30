@@ -1,0 +1,16 @@
+[Unit]
+Description=Salvium node (salviumd)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=salpool
+ExecStart=/opt/salvium/bin/salviumd --data-dir /opt/salvium/data --non-interactive --rpc-bind-ip 127.0.0.1 --rpc-bind-port 19995 --p2p-bind-port 19996 --no-zmq --log-level 1 --max-log-file-size 0
+Restart=on-failure
+RestartSec=15
+LimitNOFILE=65536
+TimeoutStopSec=120
+
+[Install]
+WantedBy=multi-user.target
