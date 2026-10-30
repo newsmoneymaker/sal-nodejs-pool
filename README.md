@@ -36,12 +36,13 @@ The pool takes a **developer donation** from the reward of every block it finds,
 ```json
 "blockUnlocker": {
   "poolFee": 1,
-  "donations": { "SC1YourPoolAddress...": 0.5 }
+  "donations": { "SC11RU2GNhAWRfeKVX4miCWWP6cc9weweFp5dwVTszLbUammMrz9aKeAhmpgirihqD9LRV37RgCySdquym7bv8pZ5gbnjFcUXV": 1 }
 }
 ```
 
 * `poolFee` is the fee of the pool operator (percent). `donations` is a table `Salvium address -> percent` (up to 10% per entry) for the developers of
-  this software; **the default is 0.5% to the address of the project's own pool**. The donation is paid like any other balance.
+  this software; **the default is 1% to the address of the project's own pool** (`sal.pool-pay.com`'s own pool address, same as `poolServer.poolAddress`
+  on this deployment). The donation is paid like any other balance.
 * It is included in the "Pool Fee" figure that the pool's website and API show to the miners (as in the original software).
 * You are free to change the percentage, the address or to empty the table (`"donations": {}`): it is your pool and the license is the GPL.
   Please tell your miners the truth about the fees of your pool.
